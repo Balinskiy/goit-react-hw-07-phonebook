@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button, ContactForm, Input, Label } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'store/contactSlice';
 import { getContacts } from 'store/selectors';
+import { addContacts } from 'store/operations';
 
 const ContactFormComponent = () => {
   const [name, setName] = useState('');
@@ -32,7 +32,7 @@ const ContactFormComponent = () => {
     }
 
     const newContact = { name, number };
-    dispatch(addContact(newContact));
+    dispatch(addContacts(newContact));
 
     setName('');
     setNumber('');
